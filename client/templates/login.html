@@ -1,0 +1,27 @@
+<template name="login">
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Login</h4>
+        </div>
+        <div class="modal-body">
+         <div class="container">
+          <div class="row">
+            <!-- login form -->
+            <form role="form">
+              <input id="email" type="email" name="email" placeholder="Email" />
+              <input id="password" type="password" name="password" placeholder="Password" />
+            </form>
+          </div>
+        </div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="login" class="btn btn-success pull-left">Login</button>
+          <button type="button" id="sign-up" class="btn btn-primary">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

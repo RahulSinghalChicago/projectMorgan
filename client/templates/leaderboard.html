@@ -1,0 +1,40 @@
+<template name="leaderboard">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="myclassfordriver">Driver</th>
+        <th class="myclassforscore">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each drivers}}
+        {{> driver}}
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{#if selected_name}}
+    <div class="details">
+      <div class="name">{{selected_name}}</div>
+      <input type="button" class="inc" value="Give 5 points" />
+    </div>
+  {{else}}
+    <div class="none">Click a driver to select</div>
+  {{/if}} 
+</template>
+
+<template name="driver">
+  	<tr class="driver {{selected}}">
+	    <td class="name">
+        {{name}}
+      </td>
+	    <td class="score">
+        {{score}}
+      </td>
+  	</tr>
+</template>
+
+
+
+
+
