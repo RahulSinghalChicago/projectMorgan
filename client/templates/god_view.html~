@@ -9,11 +9,11 @@
 								<button id="login-btn" type="button" class="btn btn-success" href="{{pathFor 'login'}}">Login</button>
 							</div>
 						</div>
+						<div>
+						  <a href="#" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-play"></span> </a>
+						</div>
 					</div>
 				</div>
-				<div id="replay-btn-container" class="container-fluid">
-                                     <a href="#" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-play"></span> </a>
-                                </div>
 			</div>
 			<div id="god_view_leaderboard" class="col-md-4">
 				<div id="leaderboard-view" class="container-fluid">

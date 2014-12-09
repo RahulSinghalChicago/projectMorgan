@@ -1,11 +1,11 @@
 Router.configure({
   layoutTemplate: 'layout',
-  data: function() {
-  	return Meteor.subscribe('drivers')
+  yieldRegions: {
+    'login': {to: 'login'}
   }
 });
 
-//Router.route('/replay', {name: 'Replay'}); 
+Router.route('/replay', {name: 'Replay'); 
 
 
 Router.map(function() {
