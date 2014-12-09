@@ -1,3 +1,5 @@
 <template name="driverHistory">
-	<p>This driver's name is {{name}} and he has a score of {{score}}</p>
+	{{#each drivers}}
+	<p>This driver's name is {{profile.fname}} and he has a score of {{score}}</p>
+	{{/each}}
 </template>
