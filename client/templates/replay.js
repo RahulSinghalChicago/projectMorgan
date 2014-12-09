@@ -8,12 +8,19 @@ function sleep(milliseconds) {
 }
 
 doReplay = function() {
-	for (j = 0; j < allPos.length; j++) {
-		for (i = 0; i < 3; i++) {
-			// TODO: replace line below to update user current position.
-			console.log(allPos[j][i]);
-			sleep(1000);
+	done = false;
+	cnt = 0;
+	while (!done) {
+		for (j = 0; j < allPos.length; j++) {
+			done = true;
+			if (cnt < allPos[j].length) {
+				done = false;
+				// TODO: replace line below to update user current position.
+				console.log(allPos[j][cnt]);				
+			}
 		}
+		sleep(1000);
+		cnt++;
 	}
 }
 
