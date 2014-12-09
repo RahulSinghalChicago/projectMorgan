@@ -1,7 +1,9 @@
 Template.leaderboard.helpers({
 	drivers: function() {
-    return Drivers.find({}, {sort: {score: -1, name: 1}});
-	},
+    //return Drivers.find({}, {sort: {score: -1, name: 1}});
+    return Meteor.users.find({});
+
+  },
   selected_name: function() {
     var driver = Drivers.findOne(Session.get("selected_driver"));
     return driver && driver.name;
