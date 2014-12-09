@@ -1,0 +1,4 @@
+<template name="Replay">
+	<p>Replay</p>
+	<a href="#" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-play"></span> </a>
+</template>

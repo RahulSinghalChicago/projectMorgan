@@ -5,7 +5,7 @@ Router.configure({
   }
 });
 
-//Router.route('/replay', {name: 'Replay'}); 
+Router.route('/replay', {name: 'Replay'); 
 
 
 Router.map(function() {

@@ -1,4 +1,4 @@
-Template.godView.rendered = function() {
+	Template.godView.rendered = function() {
 	//make the map full screen
 	//var w = window.innerWidth;
     var h = window.innerHeight;
@@ -13,6 +13,9 @@ Template.godView.rendered = function() {
 Template.godView.events({
 	'click button': function(e,t) {
 		$('#loginModal').modal('show'); 
-	}
+	},
+	'click #replay-btn-container': function(e,t) {
+		doReplay(); 
+	}	
 });
 
