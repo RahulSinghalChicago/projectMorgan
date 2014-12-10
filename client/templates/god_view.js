@@ -22,13 +22,14 @@ Template.godView.rendered = function() {
     console.log(availableDrivers.fetch().length);
     handle = availableDrivers.observeChanges({
         added: function(id, fields) {
+            var user = Meteor.users.findOne(id);
             console.log('added called');
             if (typeof fields.location !== 'undefined' ) { 
                     var objMarker = {
                         id: id, //Meteor UserId is set to markerData.id
                         lat: fields.location[0],
                         lng: fields.location[1],
-                        fname: fields.profile.fname
+                        fname: user.profile.fname
                     };
 	                //check if marker already exists
 	                var test = (maps.markerExists('id', objMarker.id))
@@ -92,6 +93,7 @@ Template.godView.events({
 	},
     'click #be-there-btn-container': function(e,t) {
         console.log('clicked!');
+        console.log(_.now())
         var messageId = Messages.insert({
             to: '+13123918301',
             from: '+18474147999',
