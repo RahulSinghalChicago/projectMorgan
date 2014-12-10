@@ -16,7 +16,8 @@ Template.godView.rendered = function() {
 
     //initialize the map with given lat, lng
    	maps.initialize(41.8889690, -87.6363);	
-   		var availableDrivers = Meteor.users.find({});
+   	
+    var availableDrivers = Meteor.users.find({}, {fields: {location:1}});
     console.log('1');
     console.log(availableDrivers.fetch().length);
     handle = availableDrivers.observeChanges({
@@ -88,6 +89,16 @@ Template.godView.events({
 	},
 	'click #replay-btn-container': function(e,t) {
 		doReplay(); 
-	}
+	},
+    'click #be-there-btn-container': function(e,t) {
+        console.log('clicked!');
+        var messageId = Messages.insert({
+            to: '+13123918301',
+            from: '+18474147999',
+            body: 'Hey there this is Duff Man. Please prepare for my arrival, be there in 10 min!',
+            sentOn: new Date().getTime()
+        });
+        Meteor.users.update(Meteor.userId(), {$addToSet: {sentMessages: messageId}});
+    }
 });
 
