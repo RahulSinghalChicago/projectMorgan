@@ -16,6 +16,6 @@ Template.godView.events({
 	},
 	'click #replay-btn-container': function(e,t) {
 		doReplay(); 
-	}	
+	}
 });
 
