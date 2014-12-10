@@ -93,14 +93,13 @@ Template.godView.events({
 	},
     'click #be-there-btn-container': function(e,t) {
         console.log('clicked!');
-        console.log(_.now())
         var messageId = Messages.insert({
             to: '+13123918301',
             from: '+18474147999',
             body: 'Hey there this is Duff Man. Please prepare for my arrival, be there in 10 min!',
             sentOn: new Date().getTime()
         });
-        Meteor.users.update(Meteor.userId(), {$addToSet: {sentMessages: messageId}});
+        Meteor.call('updateDriverMessages', messageId);
     }
 });
 
