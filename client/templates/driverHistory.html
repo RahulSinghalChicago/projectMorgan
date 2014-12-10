@@ -1,5 +1,9 @@
 <template name="driverHistory">
-	{{#each drivers}}
+	<!-- {{#each drivers}}
 	<p>This driver's name is {{profile.fname}} and he has a score of {{score}}</p>
+	{{/each}} -->
+
+	{{#each sentMessages}}
+	<p>Sent On: {{sentOn}} Body: {{body}}</p>
 	{{/each}}
 </template>

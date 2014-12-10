@@ -12,3 +12,7 @@ Meteor.publish('drivers', function() {
 });*/
 
 //---
+
+Meteor.publish('messages', function() {
+	return Messages.find();
+});

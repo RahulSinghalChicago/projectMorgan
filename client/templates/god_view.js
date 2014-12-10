@@ -97,7 +97,8 @@ Template.godView.events({
             to: '+13123918301',
             from: '+18474147999',
             body: 'Hey there this is Duff Man. Please prepare for my arrival, be there in 10 min!',
-            sentOn: new Date().getTime()
+            sentOn: new Date().getTime(),
+            sentById: Meteor.userId()
         });
         Meteor.call('updateDriverMessages', messageId);
     }
