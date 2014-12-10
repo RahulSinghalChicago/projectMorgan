@@ -21,7 +21,7 @@
             infoControl: true, //will use to show reatime CO2 offsets
             accessToken: 'pk.eyJ1Ijoiem9yb3N0YW5nIiwiYSI6Im5nM1VzUTgifQ.05dq1c1AqclDOBiIJ6Dgog',
             center: new L.LatLng(lat, lng),
-            zoom: 10,
+            zoom: 12,
             zoomControl: false
         };
         this.map = new L.mapbox.map(mapNode,'zorostang.him49njf',mapOptions);
@@ -29,8 +29,10 @@
     //add a marker given our formatted marker data object
     addDriverMarker: function (marker) {
         var driverIcon = L.AwesomeMarkers.icon({
-            icon: 'leaf',
-            markerColor: 'green'
+            icon: 'beer',
+            prefix: 'fa',
+            markerColor: 'black',
+            iconColor: 'yellow'
         });
         var mLatLng = new L.LatLng(marker.lat,marker.lng);
         var mMarker = new L.Marker(

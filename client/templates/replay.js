@@ -14,13 +14,13 @@ doReplay = function() {
 		for (j = 0; j < allPos.length; j++) {
 			done = true;
 			if (cnt < allPos[j].length) {
-				if (cnt < 3) { done = false; }
+				done = false;
 				// TODO: replace line below to update user current position.
 				Meteor.call('updateDriverPos', j, allPos[j][cnt]);
 				console.log(allPos[j][cnt]);				
 			}
 		}
-		sleep(1000);
+		sleep(100);
 		cnt++;
 	}
 }
