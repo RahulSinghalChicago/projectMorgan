@@ -12,4 +12,5 @@ nemo64:bootstrap
 accounts-password
 mrt:googlemaps
 underscore
+servicelocale:twilio
 

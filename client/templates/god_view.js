@@ -94,12 +94,25 @@ Template.godView.events({
     'click #be-there-btn-container': function(e,t) {
         console.log('clicked!');
         var messageId = Messages.insert({
-            to: '+13123918301',
-            from: '+18474147999',
-            body: 'Hey there this is Duff Man. Please prepare for my arrival, be there in 10 min!',
+            to: '+16302543868',
+            from: '+12193211731',
+            body: 'Hey there this is ' + Meteor.user().profile.fname + '. Please prepare for my arrival, be there in 10 min!',
             sentOn: new Date().getTime(),
             sentById: Meteor.userId()
         });
+        Meteor.call('sendMessage', messageId );
+        Meteor.call('updateDriverMessages', messageId);
+    },
+    'click #im-at-btn-container': function(e,t) {
+        console.log('clicked!');
+        var messageId = Messages.insert({
+            to: '+16302543868',
+            from: '+12193211731',
+            body: 'Hey there this is ' + Meteor.user().profile.fname + '. I some location. I should be there in about an hour.',
+            sentOn: new Date().getTime(),
+            sentById: Meteor.userId()
+        });
+        Meteor.call('sendMessage', messageId);
         Meteor.call('updateDriverMessages', messageId);
     }
 });
