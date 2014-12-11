@@ -114,6 +114,12 @@ Template.godView.events({
         });
         Meteor.call('sendMessage', messageId);
         Meteor.call('updateDriverMessages', messageId);
+    },
+    'click #zoom-nation-btn-container': function(e,t) {
+        maps.map.setZoom(5);
+    },
+    'click #zoom-local-btn-container': function(e,t) {
+        maps.map.setZoom(12);
     }
 });
 
