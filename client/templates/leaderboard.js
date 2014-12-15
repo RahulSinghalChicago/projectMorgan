@@ -1,7 +1,7 @@
 Template.leaderboard.helpers({
 	drivers: function() {
     //return Drivers.find({}, {sort: {score: -1, name: 1}});
-    return Meteor.users.find({});
+    return Meteor.users.find({}, {sort: {score:-1, name:1}});
 
   },
   selected_name: function() {

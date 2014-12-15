@@ -10,7 +10,7 @@ Template.godView.rendered = function() {
 	//make the map full screen
 	//var w = window.innerWidth;
     var h = window.innerHeight;
-    $('#map_canvas').css({height: h+'px'});
+    $('#map_canvas').css({height: h/1.15+'px'});
     $('#leaderboard-view').css({height: h/2+'px'});
     $('#driverHistory-view').css({height: h/2+'px'});
 
@@ -19,7 +19,7 @@ Template.godView.rendered = function() {
    	
     var availableDrivers = Meteor.users.find({}, {fields: {location:1}});
     console.log('1');
-    console.log(availableDrivers.fetch().length);
+    console.log('number of available drivers: ' + availableDrivers.fetch().length);
     handle = availableDrivers.observeChanges({
         added: function(id, fields) {
             var user = Meteor.users.findOne(id);

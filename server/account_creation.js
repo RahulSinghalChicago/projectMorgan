@@ -1,9 +1,11 @@
+var numUsers = Meteor.users.find().fetch().length;
 Accounts.onCreateUser(function(options, user) {
-	var count = 2
+	console.log(numUsers);
 	user.score = 0;
-	user.driverNumber = count;
+	user.sCtr = 0;
+	user.location = [0,0];
+	user.driverNumber = numUsers;
 	if (options.profile)
 		user.profile = options.profile;
-	count ++;
 	return user;
 });
