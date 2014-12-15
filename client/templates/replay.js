@@ -7,6 +7,7 @@ function sleep(milliseconds) {
   }
 }
 
+
 doReplay = function() {
 	done = false;
 	cnt = 0;
@@ -15,9 +16,8 @@ doReplay = function() {
 			done = true;
 			if (cnt < allPos[j].length) {
 				done = false;
-				// TODO: replace line below to update user current position.
 				Meteor.call('updateDriverPos', j, allPos[j][cnt]);
-				console.log(allPos[j][cnt]);				
+				//console.log(allPos[j][cnt]);				
 			}
 		}
 		sleep(100);
@@ -25,9 +25,36 @@ doReplay = function() {
 	}
 }
 
+global_cnt = -1;
+
+replayHelper = function() {
+	if (global_cnt < 0) return;
+	for (j = 0; j < allPos.length; j++) {
+		done = true;
+		if (global_cnt < allPos[j].length) {
+			done = false;
+			Meteor.call('updateDriverPos', j, allPos[j][global_cnt]);
+			//console.log(allPos[j][cnt]);				
+		}
+	}
+	if (done) {
+		global_cnt = -1;
+		Meteor.clearInterval(intervalID);
+	}
+	global_cnt++;
+}
+
+//intervalID = null;
+
+doReplay2 = function() {
+	global_cnt = 0;
+	intervalID = Meteor.setInterval(replayHelper, 100);
+}
+
+// not currently used
 Template.replay.events({
 	'click submit': function(e,t) {
 		e.preventDefault();
-		doReplay();
+		doReplay2();
 	}
 });

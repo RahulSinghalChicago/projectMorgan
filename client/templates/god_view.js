@@ -89,7 +89,9 @@ Template.godView.events({
 		$('#loginModal').modal('show'); 
 	},
 	'click #replay-btn-container': function(e,t) {
-		doReplay(); 
+		alert("hi");
+		doReplay2(); 
+		//Meteor.call('doReplay');
 	},
     'click #be-there-btn-container': function(e,t) {
         console.log('clicked!');
