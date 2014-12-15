@@ -29,8 +29,8 @@ global_cnt = -1;
 
 replayHelper = function() {
 	if (global_cnt < 0) return;
+	done = true;
 	for (j = 0; j < allPos.length; j++) {
-		done = true;
 		if (global_cnt < allPos[j].length) {
 			done = false;
 			Meteor.call('updateDriverPos', j, allPos[j][global_cnt]);
@@ -38,6 +38,10 @@ replayHelper = function() {
 		}
 	}
 	if (done) {
+		console.log(global_cnt);
+		for (j = 0; j < allPos.length; j++) {
+			console.log(allPos[j].length);
+		}
 		global_cnt = -1;
 		Meteor.clearInterval(intervalID);
 	}
